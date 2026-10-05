@@ -89,7 +89,9 @@
   .video-texto { min-width: 0; }
 
   /* Galería */
-  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; grid-auto-flow: dense; }
+  .foto.ancha { grid-column: span 2; }
+  .foto.ancha img { aspect-ratio: 4 / 3; }
   .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 24px; }
   .filtro { font: inherit; font-weight: 600; font-size: .9rem; color: var(--gris); background: transparent; border: 1px solid var(--linea); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
   .filtro small { color: var(--celeste); font-variant-numeric: tabular-nums; margin-left: 4px; }
@@ -214,9 +216,9 @@
     <h2>Fotos</h2>
     <p class="intro">Tocá una foto, elegí <strong>Quiero esta foto</strong> y te la mando en calidad original y sin marca de agua.</p>
     <div class="filtros" role="group" aria-label="Filtrar fotos">
-      <button type="button" class="filtro activo" data-filtro="todas">Todas <small>29</small></button>
+      <button type="button" class="filtro activo" data-filtro="todas">Todas <small>31</small></button>
       <button type="button" class="filtro" data-filtro="Futsal">Futsal <small>21</small></button>
-      <button type="button" class="filtro" data-filtro="Cancha de 11">Cancha de 11 <small>8</small></button>
+      <button type="button" class="filtro" data-filtro="Cancha de 11">Cancha de 11 <small>10</small></button>
     </div>
     <div class="galeria">
       <button class="foto" type="button" data-src="fotos/01.jpg" data-num="1" data-precio="3.000" data-tipo="Futsal">
@@ -234,6 +236,10 @@
       <button class="foto" type="button" data-src="fotos/16.jpg" data-num="16" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/16.jpg" alt="Jugador con la 25 pateando la pelota naranja" loading="lazy">
         <div class="pie"><b>#25</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/31.jpg" data-num="31" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/31.jpg" alt="Foto grupal del equipo posando en la cancha" loading="lazy">
+        <div class="pie"><b>Equipo</b><span>Cancha de 11 · $2.000</span></div>
       </button>
       <button class="foto" type="button" data-src="fotos/14.jpg" data-num="14" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
@@ -266,6 +272,10 @@
       <button class="foto" type="button" data-src="fotos/07.jpg" data-num="7" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/07.jpg" alt="Disputa de pelota entre jugadores en cancha de tierra" loading="lazy">
         <div class="pie"><b>#8</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/32.jpg" data-num="32" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/32.jpg" alt="Equipo festejando un gol con un jugador de rodillas" loading="lazy">
+        <div class="pie"><b>Festejo</b><span>Cancha de 11 · $3.000</span></div>
       </button>
       <button class="foto" type="button" data-src="fotos/18.jpg" data-num="18" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/18.jpg" alt="Capitán de futsal llevando la pelota" loading="lazy">
