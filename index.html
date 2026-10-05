@@ -119,8 +119,14 @@
   footer { padding-block: 32px 96px; color: var(--gris); font-size: .9rem; text-align: center; }
 
   /* Visor de fotos */
-  .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: grid; place-items: center; padding: 24px; }
-  .visor img { max-width: 100%; max-height: 86vh; border-radius: 10px; }
+  .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 64px 16px calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .visor img { max-width: 100%; max-height: 70vh; min-height: 0; border-radius: 10px; }
+  .visor-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; text-align: center; }
+  .visor-dato { color: var(--gris); font-size: .95rem; }
+  .visor-dato b { color: var(--tiza); font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin-right: 6px; }
+  .nota { color: var(--gris); margin: 20px 0 0; }
+  .precio b { font-family: var(--display); font-weight: 800; font-size: 1.8rem; color: var(--tiza); margin-right: 4px; }
+  img { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
   .flecha { position: absolute; top: 50%; transform: translateY(-50%); background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; width: 48px; height: 48px; font-size: 1.4rem; cursor: pointer; }
   .flecha.ant { left: 12px; }
   .flecha.sig { right: 12px; }
@@ -137,7 +143,8 @@
   @media (max-width: 760px) {
     .galeria { grid-template-columns: 1fr 1fr; gap: 10px; }
     .pie b { font-size: 1.3rem; }
-    .pie span { font-size: .75rem; }
+    .pie { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 6px; }
+    .pie span { font-size: .72rem; }
     .servicios { grid-template-columns: 1fr; }
     .contacto { padding: 24px; }
     .canales { grid-template-columns: 1fr; }
@@ -180,152 +187,153 @@
 
   <section id="fotos">
     <h2>Fotos</h2>
-    <p class="intro">Partidos de futsal y cancha de 11. Tocá una foto para verla más grande.</p>
+    <p class="intro">Tocá una foto, elegí <strong>Quiero esta foto</strong> y te la mando en calidad original y sin marca de agua.</p>
     <div class="filtros" role="group" aria-label="Filtrar fotos">
       <button type="button" class="filtro activo" data-filtro="todas">Todas <small>29</small></button>
       <button type="button" class="filtro" data-filtro="Futsal">Futsal <small>21</small></button>
       <button type="button" class="filtro" data-filtro="Cancha de 11">Cancha de 11 <small>8</small></button>
     </div>
     <div class="galeria">
-      <button class="foto" type="button" data-src="fotos/01.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/01.jpg" data-num="1" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/01.jpg" alt="Chico de futsal con la camiseta 99 a punto de patear" loading="lazy">
-        <div class="pie"><b>#99</b><span>Futsal</span></div>
+        <div class="pie"><b>#99</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/13.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/13.jpg" data-num="13" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/13.jpg" alt="Jugador con la 10 pateando frente a la tribuna" loading="lazy">
-        <div class="pie"><b>#10</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>#10</b><span>Cancha de 11 · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/26.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/26.jpg" data-num="26" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/26.jpg" alt="Jugador con la 11 pateando frente al arco" loading="lazy">
-        <div class="pie"><b>#11</b><span>Futsal</span></div>
+        <div class="pie"><b>#11</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/16.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/16.jpg" data-num="16" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/16.jpg" alt="Jugador con la 25 pateando la pelota naranja" loading="lazy">
-        <div class="pie"><b>#25</b><span>Futsal</span></div>
+        <div class="pie"><b>#25</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/14.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/14.jpg" data-num="14" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
-        <div class="pie"><b>#3</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>#3</b><span>Cancha de 11 · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/22.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/22.jpg" data-num="22" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/22.jpg" alt="Jugador con la 16 llevando la pelota" loading="lazy">
-        <div class="pie"><b>#16</b><span>Futsal</span></div>
+        <div class="pie"><b>#16</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/05.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/05.jpg" data-num="5" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/05.jpg" alt="Chico con la 9 pisando la pelota junto a la línea" loading="lazy">
-        <div class="pie"><b>#9</b><span>Futsal</span></div>
+        <div class="pie"><b>#9</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/30.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/30.jpg" data-num="30" data-precio="2.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/30.jpg" alt="Capitán con la pelota en las manos" loading="lazy">
-        <div class="pie"><b>Capitán</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>Capitán</b><span>Cancha de 11 · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/19.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/19.jpg" data-num="19" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/19.jpg" alt="Jugador con buzo negro pateando la pelota" loading="lazy">
-        <div class="pie"><b>Remate</b><span>Futsal</span></div>
+        <div class="pie"><b>Remate</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/11.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/11.jpg" data-num="11" data-precio="2.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/11.jpg" alt="Arquero con guantes caminando por el área" loading="lazy">
-        <div class="pie"><b>Arquero</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>Arquero</b><span>Cancha de 11 · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/28.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/28.jpg" data-num="28" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/28.jpg" alt="Jugador con la 14 disputando la pelota" loading="lazy">
-        <div class="pie"><b>#14</b><span>Futsal</span></div>
+        <div class="pie"><b>#14</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/07.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/07.jpg" data-num="7" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/07.jpg" alt="Disputa de pelota entre jugadores en cancha de tierra" loading="lazy">
-        <div class="pie"><b>#8</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>#8</b><span>Cancha de 11 · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/18.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/18.jpg" data-num="18" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/18.jpg" alt="Capitán de futsal llevando la pelota" loading="lazy">
-        <div class="pie"><b>Capitán</b><span>Futsal</span></div>
+        <div class="pie"><b>Capitán</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/02.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/02.jpg" data-num="2" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/02.jpg" alt="Jugador con la 11 pateando en el gimnasio" loading="lazy">
-        <div class="pie"><b>#11</b><span>Futsal</span></div>
+        <div class="pie"><b>#11</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/04.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/04.jpg" data-num="4" data-precio="2.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/04.jpg" alt="Jugador llevando la pelota embarrada" loading="lazy">
-        <div class="pie"><b>Pelota</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>Pelota</b><span>Cancha de 11 · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/20.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/20.jpg" data-num="20" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/20.jpg" alt="Jugador con la 44 mirando la jugada" loading="lazy">
-        <div class="pie"><b>#44</b><span>Futsal</span></div>
+        <div class="pie"><b>#44</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/15.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/15.jpg" data-num="15" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/15.jpg" alt="Jugador con la 77 apoyando la mano sobre la pelota" loading="lazy">
-        <div class="pie"><b>#77</b><span>Futsal</span></div>
+        <div class="pie"><b>#77</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/10.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/10.jpg" data-num="10" data-precio="2.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/10.jpg" alt="Jugador con la 8 parado en la cancha" loading="lazy">
-        <div class="pie"><b>#8</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>#8</b><span>Cancha de 11 · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/21.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/21.jpg" data-num="21" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/21.jpg" alt="Arquero de futsal entrando en calor" loading="lazy">
-        <div class="pie"><b>Arquero</b><span>Futsal</span></div>
+        <div class="pie"><b>Arquero</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/24.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/24.jpg" data-num="24" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/24.jpg" alt="Jugador con la 2 llevando la pelota" loading="lazy">
-        <div class="pie"><b>#2</b><span>Futsal</span></div>
+        <div class="pie"><b>#2</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/12.jpg" data-tipo="Cancha de 11">
+      <button class="foto" type="button" data-src="fotos/12.jpg" data-num="12" data-precio="3.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/12.jpg" alt="Jugador haciendo jueguito en la entrada en calor" loading="lazy">
-        <div class="pie"><b>Previa</b><span>Cancha de 11</span></div>
+        <div class="pie"><b>Previa</b><span>Cancha de 11 · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/23.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/23.jpg" data-num="23" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/23.jpg" alt="Capitán acomodando la pelota para sacar un lateral" loading="lazy">
-        <div class="pie"><b>Lateral</b><span>Futsal</span></div>
+        <div class="pie"><b>Lateral</b><span>Futsal · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/08.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/08.jpg" data-num="8" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/08.jpg" alt="Retrato de un chico con la camiseta 4" loading="lazy">
-        <div class="pie"><b>#4</b><span>Futsal</span></div>
+        <div class="pie"><b>#4</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/29.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/29.jpg" data-num="29" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/29.jpg" alt="Tres jugadores hablando antes de la jugada" loading="lazy">
-        <div class="pie"><b>Charla</b><span>Futsal</span></div>
+        <div class="pie"><b>Charla</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/09.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/09.jpg" data-num="9" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/09.jpg" alt="Jugador con la 25 de espaldas con la pelota en la mano" loading="lazy">
-        <div class="pie"><b>#25</b><span>Futsal</span></div>
+        <div class="pie"><b>#25</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/27.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/27.jpg" data-num="27" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/27.jpg" alt="Retrato de un chico con la camiseta 99" loading="lazy">
-        <div class="pie"><b>#99</b><span>Futsal</span></div>
+        <div class="pie"><b>#99</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/25.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/25.jpg" data-num="25" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/25.jpg" alt="Director técnico dando indicaciones" loading="lazy">
-        <div class="pie"><b>DT</b><span>Futsal</span></div>
+        <div class="pie"><b>DT</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/06.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/06.jpg" data-num="6" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/06.jpg" alt="Retrato de perfil de un jugador de futsal" loading="lazy">
-        <div class="pie"><b>Perfil</b><span>Futsal</span></div>
+        <div class="pie"><b>Perfil</b><span>Futsal · $2.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/17.jpg" data-tipo="Futsal">
+      <button class="foto" type="button" data-src="fotos/17.jpg" data-num="17" data-precio="2.000" data-tipo="Futsal">
         <img src="fotos/chicas/17.jpg" alt="Retrato de perfil de un chico de futsal" loading="lazy">
-        <div class="pie"><b>#19</b><span>Futsal</span></div>
+        <div class="pie"><b>#19</b><span>Futsal · $2.000</span></div>
       </button>
     </div>
   </section>
 
   <section id="servicios">
     <h2>Servicios</h2>
-    <p class="intro">Elegí lo que necesitás y coordinamos por mensaje.</p>
+    <p class="intro">Te mando cada foto en calidad original y sin marca de agua.</p>
     <div class="servicios">
       <div class="servicio">
-        <h3>Partido completo</h3>
-        <p>Cobertura de todo el partido. Te paso las mejores fotos del equipo y de cada jugador.</p>
-        <div class="precio">Consultá precio por DM</div>
+        <h3>Foto en acción</h3>
+        <p>Remates, gambetas, festejos y jugadas del partido.</p>
+        <div class="precio"><b>$3.000</b> por foto</div>
       </div>
       <div class="servicio">
-        <h3>Foto individual</h3>
-        <p>Fotos de un jugador durante el partido: remates, festejos y retratos con la camiseta.</p>
-        <div class="precio">Consultá precio por DM</div>
+        <h3>Retrato</h3>
+        <p>Fotos con la camiseta, de perfil o con el equipo, listas para tu perfil.</p>
+        <div class="precio"><b>$2.000</b> por foto</div>
       </div>
       <div class="servicio">
-        <h3>Para redes</h3>
-        <p>Fotos editadas y listas para subir a Instagram o usar de foto de perfil.</p>
-        <div class="precio">Consultá precio por DM</div>
+        <h3>Pack de 3 fotos</h3>
+        <p>Elegí las 3 que más te gusten, de acción o retrato.</p>
+        <div class="precio"><b>$7.000</b> el pack</div>
       </div>
     </div>
+    <p class="nota">¿Querés el partido completo para tu equipo o tu club? Escribime y lo coordinamos.</p>
   </section>
 
   <section id="contacto">
@@ -351,6 +359,10 @@
   <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
   <button class="flecha ant" id="ant" type="button" aria-label="Foto anterior">‹</button>
   <img id="visor-img" alt="Foto ampliada">
+  <div class="visor-pie">
+    <span class="visor-dato" id="visor-dato"></span>
+    <a class="boton" id="quiero" href="#" target="_blank" rel="noopener">Quiero esta foto</a>
+  </div>
   <button class="flecha sig" id="sig" type="button" aria-label="Foto siguiente">›</button>
 </div>
 
@@ -364,6 +376,11 @@
     actual = visibles().indexOf(boton);
     visorImg.src = boton.dataset.src;
     visorImg.alt = boton.querySelector('img').alt;
+    const titulo = boton.querySelector('.pie b').textContent;
+    const tipo = boton.dataset.tipo;
+    document.getElementById('visor-dato').innerHTML = `<b>$${boton.dataset.precio}</b>Foto N° ${boton.dataset.num} · ${titulo} · ${tipo}`;
+    const texto = `Hola Mauro! Quiero la foto N° ${boton.dataset.num} (${titulo}, ${tipo}) de $${boton.dataset.precio} que vi en tu página.`;
+    document.getElementById('quiero').href = 'https://wa.me/5491130314910?text=' + encodeURIComponent(texto);
     visor.hidden = false;
   };
   const mover = paso => {
@@ -371,6 +388,8 @@
     mostrar(lista[(actual + paso + lista.length) % lista.length]);
   };
   fotos.forEach(boton => boton.addEventListener('click', () => mostrar(boton)));
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   const cerrar = () => { visor.hidden = true; };
   document.getElementById('cerrar').addEventListener('click', cerrar);
   document.getElementById('ant').addEventListener('click', () => mover(-1));
