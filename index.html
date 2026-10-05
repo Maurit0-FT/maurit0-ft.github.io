@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maurit0_f Fotografía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Barlow:wght@400;500;600&display=swap">
+<style>
+  /* Layout: tribuna nocturna — portada con nombre tipo dorsal, galería en grilla, servicios y contacto por DM */
+  :root {
+    --noche: #070d1f;        /* fondo */
+    --tribuna: #0e1a38;      /* superficies */
+    --linea: #1f3266;        /* bordes */
+    --azul: #2f6bff;         /* acento */
+    --celeste: #8fb4ff;      /* acento suave */
+    --tiza: #eef3ff;         /* texto */
+    --gris: #9aa8c7;         /* texto secundario */
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --cuerpo: "Barlow", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--noche);
+    color: var(--tiza);
+    font-family: var(--cuerpo);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .envoltura { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+  /* Barra superior */
+  .barra {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--noche) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linea);
+  }
+  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .marca { font-family: var(--display); font-weight: 900; font-size: 1.5rem; letter-spacing: .02em; text-decoration: none; }
+  .marca span { color: var(--azul); }
+  .barra nav { display: flex; gap: 20px; font-size: .9rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .barra nav a { text-decoration: none; color: var(--gris); }
+  .barra nav a:hover { color: var(--tiza); }
+
+  /* Portada */
+  .portada { padding-block: 56px 40px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .portada > * { min-width: 0; }
+  .etiqueta { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--celeste); border: 1px solid var(--linea); padding: 4px 10px; border-radius: 999px; }
+  h1 {
+    font-family: var(--display); font-weight: 900; text-transform: uppercase;
+    font-size: clamp(3.4rem, 10vw, 6.6rem); line-height: .9; margin: 18px 0 16px; letter-spacing: .01em;
+    text-wrap: balance;
+  }
+  h1 .azul { color: var(--azul); display: block; }
+  .bajada { color: var(--gris); max-width: 34ch; font-size: 1.1rem; margin: 0 0 28px; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+  .boton {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; text-decoration: none; padding: 13px 22px; border-radius: 10px;
+    background: var(--azul); color: #fff; border: 1px solid var(--azul);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .boton:hover { transform: translateY(-2px); }
+  .boton.secundario { background: transparent; color: var(--tiza); border-color: var(--linea); }
+  .portada-foto { position: relative; }
+  .portada-foto img { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; display: block; }
+  .dorsal {
+    position: absolute; left: -18px; bottom: 22px;
+    font-family: var(--display); font-weight: 900; font-size: 4.6rem; line-height: 1;
+    color: var(--noche); background: var(--azul); padding: 4px 16px 8px; border-radius: 8px;
+  }
+
+  /* Secciones */
+  section { padding-block: 56px; border-top: 1px solid var(--linea); }
+  h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1; margin: 0 0 8px; letter-spacing: .01em; }
+  .intro { color: var(--gris); margin: 0 0 32px; max-width: 60ch; }
+
+  /* Galería */
+  .galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .foto { margin: 0; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; color: inherit; font: inherit; }
+  .foto img { width: 100%; max-width: 100%; aspect-ratio: 4 / 6.5; object-fit: cover; border-radius: 10px; display: block; transition: transform .25s ease, filter .25s ease; }
+  .foto:hover img { transform: scale(1.02); filter: brightness(1.08); }
+  .pie { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding-top: 10px; }
+  .pie b { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--celeste); font-variant-numeric: tabular-nums; }
+  .pie span { color: var(--gris); font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; }
+
+  /* Servicios */
+  .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .servicio { background: var(--tribuna); border: 1px solid var(--linea); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .servicio h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.6rem; margin: 0; letter-spacing: .02em; }
+  .servicio p { margin: 0; color: var(--gris); }
+  .servicio .precio { margin-top: auto; padding-top: 12px; color: var(--celeste); font-weight: 600; font-size: .95rem; }
+
+  /* Contacto */
+  .contacto { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: var(--tribuna); border: 1px solid var(--linea); border-radius: 16px; padding: 32px; }
+  .contacto > * { min-width: 0; }
+  .contacto h2 { margin-bottom: 6px; }
+  .contacto p { margin: 0; color: var(--gris); }
+  .usuario { font-family: var(--display); font-weight: 800; font-size: 1.8rem; color: var(--tiza); user-select: all; }
+  footer { padding-block: 32px; color: var(--gris); font-size: .9rem; text-align: center; }
+
+  /* Visor de fotos */
+  .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: grid; place-items: center; padding: 24px; }
+  .visor img { max-width: 100%; max-height: 86vh; border-radius: 10px; }
+  .cerrar { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 600; cursor: pointer; }
+
+  @media (max-width: 760px) {
+    .portada { grid-template-columns: 1fr; padding-block: 32px; }
+    .portada-foto { max-width: 420px; }
+    .dorsal { left: 12px; font-size: 3.4rem; }
+    .galeria { grid-template-columns: 1fr 1fr; }
+    .galeria .foto:last-child { grid-column: 1 / -1; }
+    .galeria .foto:last-child img { aspect-ratio: 4 / 3; object-position: center 20%; }
+    .servicios { grid-template-columns: 1fr; }
+    .contacto { grid-template-columns: 1fr; padding: 24px; }
+    .barra nav { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="#inicio">MAURIT0<span>_F</span></a>
+    <nav aria-label="Secciones">
+      <a href="#fotos">Fotos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="envoltura" id="inicio">
+  <div class="portada">
+    <div>
+      <span class="etiqueta">Fotógrafo deportivo</span>
+      <h1>Mauro Cuenca <span class="azul">Fútbol y futsal</span></h1>
+      <p class="bajada">Fotos de partidos y jugadores, desde la cancha. Si jugás, te saco la foto que querés subir.</p>
+      <div class="acciones">
+        <a class="boton" href="https://ig.me/m/maurit0_f" target="_blank" rel="noopener">Escribime por DM</a>
+        <a class="boton secundario" href="#fotos">Ver fotos</a>
+      </div>
+    </div>
+    <div class="portada-foto">
+      <img src="fotos/foto-2.jpg" alt="Jugador con la camiseta 10 pateando la pelota en una cancha de pasto">
+      <div class="dorsal" aria-hidden="true">10</div>
+    </div>
+  </div>
+
+  <section id="fotos">
+    <h2>Fotos</h2>
+    <p class="intro">Algunos trabajos recientes. Tocá una foto para verla más grande.</p>
+    <div class="galeria">
+      <button class="foto" type="button" data-src="fotos/foto-1.jpg">
+        <img src="fotos/foto-1.jpg" alt="Jugador de futsal con la camiseta 25 y la pelota en la mano">
+        <div class="pie"><b>#25</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/foto-2.jpg">
+        <img src="fotos/foto-2.jpg" alt="Jugador con la camiseta 10 pateando en cancha de pasto">
+        <div class="pie"><b>#10</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/foto-3.jpg">
+        <img src="fotos/foto-3.jpg" alt="Jugador juvenil de futsal con la camiseta 99">
+        <div class="pie"><b>#99</b><span>Futsal masculino</span></div>
+      </button>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <p class="intro">Elegí lo que necesitás y coordinamos por mensaje.</p>
+    <div class="servicios">
+      <div class="servicio">
+        <h3>Partido completo</h3>
+        <p>Cobertura de todo el partido. Te paso las mejores fotos del equipo y de cada jugador.</p>
+        <div class="precio">Consultá precio por DM</div>
+      </div>
+      <div class="servicio">
+        <h3>Foto individual</h3>
+        <p>Fotos de un jugador durante el partido: remates, festejos y retratos con la camiseta.</p>
+        <div class="precio">Consultá precio por DM</div>
+      </div>
+      <div class="servicio">
+        <h3>Para redes</h3>
+        <p>Fotos editadas y listas para subir a Instagram o usar de foto de perfil.</p>
+        <div class="precio">Consultá precio por DM</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="contacto">
+      <div>
+        <h2>Contratame</h2>
+        <p>Mandame un mensaje en Instagram con la fecha, la cancha y la categoría.</p>
+        <div class="usuario">@maurit0_f</div>
+      </div>
+      <a class="boton" href="https://instagram.com/maurit0_f" target="_blank" rel="noopener">Abrir Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer>© Mauro Cuenca · @maurit0_f · Fotografía deportiva</footer>
+
+<div class="visor" id="visor" hidden>
+  <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
+  <img id="visor-img" src="" alt="Foto ampliada">
+</div>
+
+<script>
+  const visor = document.getElementById('visor');
+  const visorImg = document.getElementById('visor-img');
+  document.querySelectorAll('.foto').forEach(boton => {
+    boton.addEventListener('click', () => {
+      visorImg.src = boton.dataset.src;
+      visorImg.alt = boton.querySelector('img').alt;
+      visor.hidden = false;
+    });
+  });
+  const cerrar = () => { visor.hidden = true; };
+  document.getElementById('cerrar').addEventListener('click', cerrar);
+  visor.addEventListener('click', e => { if (e.target === visor) cerrar(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+</script>
+</body>
+</html>
