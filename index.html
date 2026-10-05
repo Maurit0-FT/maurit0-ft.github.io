@@ -22,6 +22,7 @@
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
     margin: 0;
     background: var(--noche);
@@ -213,7 +214,7 @@
 
 <div class="visor" id="visor" hidden>
   <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
-  <img id="visor-img" src="" alt="Foto ampliada">
+  <img id="visor-img" alt="Foto ampliada">
 </div>
 
 <script>
