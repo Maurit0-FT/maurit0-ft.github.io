@@ -83,9 +83,14 @@
   .intro { color: var(--gris); margin: 0 0 32px; max-width: 60ch; }
 
   /* Galería */
-  .galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 24px; }
+  .filtro { font: inherit; font-weight: 600; font-size: .9rem; color: var(--gris); background: transparent; border: 1px solid var(--linea); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+  .filtro small { color: var(--celeste); font-variant-numeric: tabular-nums; margin-left: 4px; }
+  .filtro.activo { background: var(--azul); border-color: var(--azul); color: #fff; }
+  .filtro.activo small { color: #fff; }
   .foto { margin: 0; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; color: inherit; font: inherit; }
-  .foto img { width: 100%; max-width: 100%; aspect-ratio: 4 / 6.5; object-fit: cover; border-radius: 10px; display: block; transition: transform .25s ease, filter .25s ease; }
+  .foto img { width: 100%; max-width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 10px; display: block; transition: transform .25s ease, filter .25s ease; }
   .foto:hover img { transform: scale(1.02); filter: brightness(1.08); }
   .pie { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding-top: 10px; }
   .pie b { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--celeste); font-variant-numeric: tabular-nums; }
@@ -109,15 +114,23 @@
   /* Visor de fotos */
   .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: grid; place-items: center; padding: 24px; }
   .visor img { max-width: 100%; max-height: 86vh; border-radius: 10px; }
+  .flecha { position: absolute; top: 50%; transform: translateY(-50%); background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; width: 48px; height: 48px; font-size: 1.4rem; cursor: pointer; }
+  .flecha.ant { left: 12px; }
+  .flecha.sig { right: 12px; }
   .cerrar { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 600; cursor: pointer; }
 
   @media (max-width: 760px) {
     .portada { grid-template-columns: 1fr; padding-block: 32px; }
     .portada-foto { max-width: 420px; }
     .dorsal { left: 12px; font-size: 3.4rem; }
-    .galeria { grid-template-columns: 1fr 1fr; }
-    .galeria .foto:last-child { grid-column: 1 / -1; }
-    .galeria .foto:last-child img { aspect-ratio: 4 / 3; object-position: center 20%; }
+  }
+  @media (max-width: 960px) {
+    .galeria { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .galeria { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .pie b { font-size: 1.3rem; }
+    .pie span { font-size: .75rem; }
     .servicios { grid-template-columns: 1fr; }
     .contacto { grid-template-columns: 1fr; padding: 24px; }
     .barra nav { display: none; }
@@ -152,26 +165,83 @@
       </div>
     </div>
     <div class="portada-foto">
-      <img src="fotos/foto-2.jpg" alt="Jugador con la camiseta 10 pateando la pelota en una cancha de pasto">
+      <img src="fotos/13.jpg" alt="Jugador con la camiseta 10 pateando la pelota frente a la tribuna">
       <div class="dorsal" aria-hidden="true">10</div>
     </div>
   </div>
 
   <section id="fotos">
     <h2>Fotos</h2>
-    <p class="intro">Algunos trabajos recientes. Tocá una foto para verla más grande.</p>
+    <p class="intro">Partidos de futsal y cancha de 11. Tocá una foto para verla más grande.</p>
+    <div class="filtros" role="group" aria-label="Filtrar fotos">
+      <button type="button" class="filtro activo" data-filtro="todas">Todas <small>16</small></button>
+      <button type="button" class="filtro" data-filtro="Futsal">Futsal <small>9</small></button>
+      <button type="button" class="filtro" data-filtro="Cancha de 11">Cancha de 11 <small>7</small></button>
+    </div>
     <div class="galeria">
-      <button class="foto" type="button" data-src="fotos/foto-1.jpg">
-        <img src="fotos/foto-1.jpg" alt="Jugador de futsal con la camiseta 25 y la pelota en la mano">
-        <div class="pie"><b>#25</b><span>Futsal</span></div>
+      <button class="foto" type="button" data-src="fotos/01.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/01.jpg" alt="Chico de futsal con la camiseta 99 a punto de patear" loading="lazy">
+        <div class="pie"><b>#99</b><span>Futsal</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/foto-2.jpg">
-        <img src="fotos/foto-2.jpg" alt="Jugador con la camiseta 10 pateando en cancha de pasto">
+      <button class="foto" type="button" data-src="fotos/13.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/13.jpg" alt="Jugador con la 10 pateando frente a la tribuna" loading="lazy">
         <div class="pie"><b>#10</b><span>Cancha de 11</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/foto-3.jpg">
-        <img src="fotos/foto-3.jpg" alt="Jugador juvenil de futsal con la camiseta 99">
-        <div class="pie"><b>#99</b><span>Futsal masculino</span></div>
+      <button class="foto" type="button" data-src="fotos/16.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/16.jpg" alt="Jugador con la 25 pateando la pelota naranja" loading="lazy">
+        <div class="pie"><b>#25</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/14.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
+        <div class="pie"><b>#3</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/05.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/05.jpg" alt="Chico con la 9 pisando la pelota junto a la línea" loading="lazy">
+        <div class="pie"><b>#9</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/11.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/11.jpg" alt="Arquero con guantes caminando por el área" loading="lazy">
+        <div class="pie"><b>Arquero</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/02.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/02.jpg" alt="Jugador con la 11 pateando en el gimnasio" loading="lazy">
+        <div class="pie"><b>#11</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/07.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/07.jpg" alt="Disputa de pelota entre jugadores en cancha de tierra" loading="lazy">
+        <div class="pie"><b>#8</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/15.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/15.jpg" alt="Jugador con la 77 apoyando la mano sobre la pelota" loading="lazy">
+        <div class="pie"><b>#77</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/04.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/04.jpg" alt="Jugador llevando la pelota embarrada" loading="lazy">
+        <div class="pie"><b>Pelota</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/08.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/08.jpg" alt="Retrato de un chico con la camiseta 4" loading="lazy">
+        <div class="pie"><b>#4</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/10.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/10.jpg" alt="Jugador con la 8 parado en la cancha" loading="lazy">
+        <div class="pie"><b>#8</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/09.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/09.jpg" alt="Jugador con la 25 de espaldas con la pelota en la mano" loading="lazy">
+        <div class="pie"><b>#25</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/12.jpg" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/12.jpg" alt="Jugador haciendo jueguito en la entrada en calor" loading="lazy">
+        <div class="pie"><b>Previa</b><span>Cancha de 11</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/06.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/06.jpg" alt="Retrato de perfil de un jugador de futsal" loading="lazy">
+        <div class="pie"><b>Perfil</b><span>Futsal</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/17.jpg" data-tipo="Futsal">
+        <img src="fotos/chicas/17.jpg" alt="Retrato de perfil de un chico de futsal" loading="lazy">
+        <div class="pie"><b>#19</b><span>Futsal</span></div>
       </button>
     </div>
   </section>
@@ -214,23 +284,53 @@
 
 <div class="visor" id="visor" hidden>
   <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
+  <button class="flecha ant" id="ant" type="button" aria-label="Foto anterior">‹</button>
   <img id="visor-img" alt="Foto ampliada">
+  <button class="flecha sig" id="sig" type="button" aria-label="Foto siguiente">›</button>
 </div>
 
 <script>
   const visor = document.getElementById('visor');
   const visorImg = document.getElementById('visor-img');
-  document.querySelectorAll('.foto').forEach(boton => {
-    boton.addEventListener('click', () => {
-      visorImg.src = boton.dataset.src;
-      visorImg.alt = boton.querySelector('img').alt;
-      visor.hidden = false;
-    });
-  });
+  const fotos = [...document.querySelectorAll('.foto')];
+  let actual = 0;
+  const visibles = () => fotos.filter(f => !f.hidden);
+  const mostrar = boton => {
+    actual = visibles().indexOf(boton);
+    visorImg.src = boton.dataset.src;
+    visorImg.alt = boton.querySelector('img').alt;
+    visor.hidden = false;
+  };
+  const mover = paso => {
+    const lista = visibles();
+    mostrar(lista[(actual + paso + lista.length) % lista.length]);
+  };
+  fotos.forEach(boton => boton.addEventListener('click', () => mostrar(boton)));
   const cerrar = () => { visor.hidden = true; };
   document.getElementById('cerrar').addEventListener('click', cerrar);
+  document.getElementById('ant').addEventListener('click', () => mover(-1));
+  document.getElementById('sig').addEventListener('click', () => mover(1));
   visor.addEventListener('click', e => { if (e.target === visor) cerrar(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+  document.addEventListener('keydown', e => {
+    if (visor.hidden) return;
+    if (e.key === 'Escape') cerrar();
+    if (e.key === 'ArrowLeft') mover(-1);
+    if (e.key === 'ArrowRight') mover(1);
+  });
+  let inicioX = null;
+  visor.addEventListener('touchstart', e => { inicioX = e.touches[0].clientX; }, { passive: true });
+  visor.addEventListener('touchend', e => {
+    if (inicioX === null) return;
+    const dx = e.changedTouches[0].clientX - inicioX;
+    if (Math.abs(dx) > 50) mover(dx < 0 ? 1 : -1);
+    inicioX = null;
+  });
+  document.querySelectorAll('.filtro').forEach(filtro => {
+    filtro.addEventListener('click', () => {
+      document.querySelectorAll('.filtro').forEach(f => f.classList.toggle('activo', f === filtro));
+      fotos.forEach(f => { f.hidden = filtro.dataset.filtro !== 'todas' && f.dataset.tipo !== filtro.dataset.filtro; });
+    });
+  });
 </script>
 </body>
 </html>
