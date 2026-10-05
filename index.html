@@ -154,7 +154,13 @@
   .visor-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; text-align: center; }
   .visor-dato { color: var(--gris); font-size: .95rem; }
   .visor-dato b { color: var(--tiza); font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin-right: 6px; }
-  .nota { color: var(--gris); margin: 20px 0 0; }
+  .club { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 32px; align-items: center; background: var(--tribuna); border: 1px solid var(--azul); border-radius: 12px; padding: 28px; }
+  .club h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 2rem; margin: 12px 0 8px; letter-spacing: .02em; }
+  .club p { margin: 0; color: var(--gris); max-width: 60ch; }
+  .club ul { margin: 14px 0 0; padding-left: 20px; color: var(--tiza); display: grid; gap: 4px; }
+  .club ul li::marker { color: var(--azul); }
+  .club-accion { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .club-precio { color: var(--celeste) !important; font-weight: 600; }
   .precio b { font-family: var(--display); font-weight: 800; font-size: 1.8rem; color: var(--tiza); margin-right: 4px; }
   img { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
   .flecha { position: absolute; top: 50%; transform: translateY(-50%); background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; width: 48px; height: 48px; font-size: 1.4rem; cursor: pointer; }
@@ -180,6 +186,7 @@
     .pie { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 6px; }
     .pie span { font-size: .72rem; }
     .servicios { grid-template-columns: 1fr; }
+    .club { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
     .contacto { padding: 24px; }
     .canales { grid-template-columns: 1fr; }
     .barra nav { display: none; }
@@ -456,7 +463,22 @@
         <div class="precio"><b>$7.000</b> el pack</div>
       </div>
     </div>
-    <p class="nota">¿Querés el partido completo para tu equipo o tu club? Escribime y lo coordinamos.</p>
+    <div class="club">
+      <div class="club-texto">
+        <span class="etiqueta">Para clubes y equipos</span>
+        <h3>Cobertura completa</h3>
+        <p>Voy al partido o al torneo y saco fotos de todo el plantel. Te entrego las fotos editadas y listas para las redes del club.</p>
+        <ul>
+          <li>Cobertura de partidos y torneos</li>
+          <li>Packs de fotos por jugador</li>
+          <li>Abonos mensuales o por temporada</li>
+        </ul>
+      </div>
+      <div class="club-accion">
+        <p class="club-precio">El precio depende de la cantidad de partidos y jugadores.</p>
+        <a class="boton" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Soy%20de%20un%20club%20y%20quiero%20un%20presupuesto%20para%20cubrir%20partidos." target="_blank" rel="noopener">Pedí tu presupuesto</a>
+      </div>
+    </div>
   </section>
 
   <section id="contacto">
