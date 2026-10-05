@@ -78,9 +78,15 @@
   }
 
   /* Secciones */
-  section { padding-block: 56px; border-top: 1px solid var(--linea); }
+  section { padding-block: 56px; border-top: 1px solid var(--linea); scroll-margin-top: 64px; }
   h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1; margin: 0 0 8px; letter-spacing: .01em; }
   .intro { color: var(--gris); margin: 0 0 32px; max-width: 60ch; }
+
+  /* Video */
+  .video-bloque { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .video-marco { border-radius: 18px; overflow: hidden; border: 1px solid var(--linea); background: var(--tribuna); aspect-ratio: 9 / 16; max-width: 100%; }
+  .video-marco video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-texto { min-width: 0; }
 
   /* Galería */
   .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -135,6 +141,8 @@
   @media (max-width: 760px) {
     .portada { grid-template-columns: 1fr; padding-block: 32px; }
     .portada-foto { max-width: 420px; }
+    .video-bloque { grid-template-columns: 1fr; gap: 24px; }
+    .video-marco { max-width: 300px; }
     .dorsal { left: 12px; font-size: 3.4rem; }
   }
   @media (max-width: 960px) {
@@ -161,6 +169,7 @@
   <div class="envoltura">
     <a class="marca" href="#inicio">MAURIT0<span>_F</span></a>
     <nav aria-label="Secciones">
+      <a href="#video">Video</a>
       <a href="#fotos">Fotos</a>
       <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
@@ -184,6 +193,22 @@
       <div class="dorsal" aria-hidden="true">10</div>
     </div>
   </div>
+
+  <section id="video">
+    <div class="video-bloque">
+      <div class="video-marco">
+        <video poster="video/jugada-4.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del jugador con la camiseta 4 haciendo jueguito y llevando la pelota">
+          <source src="video/jugada-4.mp4" type="video/mp4">
+          <source src="video/jugada-4.webm" type="video/webm">
+        </video>
+      </div>
+      <div class="video-texto">
+        <h2>Video</h2>
+        <p class="intro">Además de fotos, filmo jugadas, gambetas y entradas en calor. Clips cortos y verticales, listos para tus historias de Instagram o tus estados de WhatsApp.</p>
+        <a class="boton" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20el%20video%20en%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20un%20video%20de%20jugadas." target="_blank" rel="noopener">Quiero un video así</a>
+      </div>
+    </div>
+  </section>
 
   <section id="fotos">
     <h2>Fotos</h2>
@@ -389,6 +414,7 @@
   };
   fotos.forEach(boton => boton.addEventListener('click', () => mostrar(boton)));
   document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   const cerrar = () => { visor.hidden = true; };
   document.getElementById('cerrar').addEventListener('click', cerrar);
