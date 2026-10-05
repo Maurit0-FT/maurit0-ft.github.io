@@ -108,8 +108,15 @@
   .contacto > * { min-width: 0; }
   .contacto h2 { margin-bottom: 6px; }
   .contacto p { margin: 0; color: var(--gris); }
-  .usuario { font-family: var(--display); font-weight: 800; font-size: 1.8rem; color: var(--tiza); user-select: all; }
-  footer { padding-block: 32px; color: var(--gris); font-size: .9rem; text-align: center; }
+  .contacto { grid-template-columns: 1fr; }
+  .canales { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .canal { display: flex; flex-direction: column; gap: 2px; text-decoration: none; background: var(--noche); border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; transition: border-color .15s ease, transform .15s ease; min-width: 0; }
+  .canal:hover { border-color: var(--azul); transform: translateY(-2px); }
+  .canal span { color: var(--celeste); font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; }
+  .canal b { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--tiza); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .flotante { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; display: inline-flex; align-items: center; gap: 8px; background: var(--azul); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 18px; border-radius: 999px; box-shadow: 0 6px 20px rgba(0, 0, 0, .45); }
+  .flotante svg { width: 20px; height: 20px; }
+  footer { padding-block: 32px 96px; color: var(--gris); font-size: .9rem; text-align: center; }
 
   /* Visor de fotos */
   .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: grid; place-items: center; padding: 24px; }
@@ -132,7 +139,8 @@
     .pie b { font-size: 1.3rem; }
     .pie span { font-size: .75rem; }
     .servicios { grid-template-columns: 1fr; }
-    .contacto { grid-template-columns: 1fr; padding: 24px; }
+    .contacto { padding: 24px; }
+    .canales { grid-template-columns: 1fr; }
     .barra nav { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -160,7 +168,7 @@
       <h1>Mauro Cuenca <span class="azul">Fútbol y futsal</span></h1>
       <p class="bajada">Fotos de partidos y jugadores, desde la cancha. Si jugás, te saco la foto que querés subir.</p>
       <div class="acciones">
-        <a class="boton" href="https://ig.me/m/maurit0_f" target="_blank" rel="noopener">Escribime por DM</a>
+        <a class="boton" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener">Escribime por WhatsApp</a>
         <a class="boton secundario" href="#fotos">Ver fotos</a>
       </div>
     </div>
@@ -324,15 +332,20 @@
     <div class="contacto">
       <div>
         <h2>Contratame</h2>
-        <p>Mandame un mensaje en Instagram con la fecha, la cancha y la categoría.</p>
-        <div class="usuario">@maurit0_f</div>
+        <p>Escribime por WhatsApp o Instagram con la fecha, la cancha y la categoría.</p>
       </div>
-      <a class="boton" href="https://instagram.com/maurit0_f" target="_blank" rel="noopener">Abrir Instagram</a>
+      <div class="canales">
+        <a class="canal" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener"><span>WhatsApp</span><b>11 3031-4910</b></a>
+        <a class="canal" href="https://wa.me/5491165788574?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener"><span>WhatsApp</span><b>11 6578-8574</b></a>
+        <a class="canal" href="https://instagram.com/maurit0_f" target="_blank" rel="noopener"><span>Instagram</span><b>@maurit0_f</b></a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>© Mauro Cuenca · @maurit0_f · Fotografía deportiva</footer>
+
+<a class="flotante" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener" aria-label="Escribir a Mauro por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
 
 <div class="visor" id="visor" hidden>
   <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
