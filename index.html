@@ -108,7 +108,7 @@
   .foto.ancha img { aspect-ratio: 4 / 3; }
   .sub { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.6rem; letter-spacing: .02em; margin: 8px 0 16px; color: var(--celeste); }
   #destacadas { margin-bottom: 40px; }
-  .carpetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .carpetas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .carpeta { position: relative; padding: 0; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; background: var(--tribuna); cursor: pointer; aspect-ratio: 4 / 3; color: var(--tiza); font: inherit; text-align: left; }
   .carpeta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
   .carpeta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 13, 31, 0) 35%, rgba(7, 13, 31, .92)); }
@@ -179,6 +179,7 @@
   }
   @media (max-width: 960px) {
     .galeria { grid-template-columns: repeat(3, 1fr); }
+    .carpetas { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
     .galeria { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -274,9 +275,9 @@
         <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
         <div class="pie"><b>#3</b><span>Cancha de 11 · $3.000</span></div>
       </button>
-      <button class="foto" type="button" data-src="fotos/01.jpg" data-num="1" data-precio="3.000" data-tipo="Futsal">
-        <img src="fotos/chicas/01.jpg" alt="Chico de futsal con la camiseta 99 a punto de patear" loading="lazy">
-        <div class="pie"><b>#99</b><span>Futsal · $3.000</span></div>
+      <button class="foto" type="button" data-src="fotos/44.jpg" data-num="44" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/44.jpg" alt="Nene de Huracán pegándole de volea a la pelota" loading="lazy">
+        <div class="pie"><b>Volea</b><span>Huracán · $3.000</span></div>
       </button>
       <button class="foto" type="button" data-src="fotos/30.jpg" data-num="30" data-precio="2.000" data-tipo="Cancha de 11">
         <img src="fotos/chicas/30.jpg" alt="Capitán con la pelota en las manos" loading="lazy">
@@ -290,6 +291,7 @@
 
     <h3 class="sub">Carpetas</h3>
     <div class="carpetas">
+      <button type="button" class="carpeta" data-album="Huracán"><img src="fotos/chicas/38.jpg" alt="" loading="lazy"><span class="c-texto"><b>Huracán</b><small>Entrenamiento en La Quemita · 11 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Futsal"><img src="fotos/chicas/26.jpg" alt="" loading="lazy"><span class="c-texto"><b>Futsal</b><small>21 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Cancha de 11"><img src="fotos/chicas/13.jpg" alt="" loading="lazy"><span class="c-texto"><b>Cancha de 11</b><small>10 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Taekwondo"><img src="fotos/chicas/36.jpg" alt="" loading="lazy"><span class="c-texto"><b>Taekwondo</b><small>Torneo en Wilde · 4 fotos</small></span></button>
@@ -301,6 +303,50 @@
         <button type="button" class="boton secundario" id="album-cerrar">Cerrar carpeta ✕</button>
       </div>
       <div class="galeria" id="album-fotos">
+      <button class="foto" type="button" data-src="fotos/44.jpg" data-num="44" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/44.jpg" alt="Nene de Huracán pegándole de volea a la pelota" loading="lazy">
+        <div class="pie"><b>Volea</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/38.jpg" data-num="38" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/38.jpg" alt="Nenes de Huracán corriendo en la entrada en calor" loading="lazy">
+        <div class="pie"><b>Entrada en calor</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/39.jpg" data-num="39" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/39.jpg" alt="Dos nenes de Huracán disputando la pelota" loading="lazy">
+        <div class="pie"><b>Gambeta</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/43.jpg" data-num="43" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/43.jpg" alt="Nene de Huracán a punto de patear la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/41.jpg" data-num="41" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/41.jpg" alt="Nene con pechera de Huracán llevando la pelota" loading="lazy">
+        <div class="pie"><b>Conducción</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/47.jpg" data-num="47" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/47.jpg" alt="Nene de Huracán posando con el pie sobre la pelota" loading="lazy">
+        <div class="pie"><b>Pose</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/37.jpg" data-num="37" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/37.jpg" alt="Nene de Huracán caminando en la cancha" loading="lazy">
+        <div class="pie"><b>Previa</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/42.jpg" data-num="42" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/42.jpg" alt="Nene de Huracán caminando hacia la jugada" loading="lazy">
+        <div class="pie"><b>En la cancha</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/40.jpg" data-num="40" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/40.jpg" alt="Entrenador de Huracán mirando el entrenamiento" loading="lazy">
+        <div class="pie"><b>DT</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/45.jpg" data-num="45" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/45.jpg" alt="Nene de Huracán sentado en un banco mirando la cancha" loading="lazy">
+        <div class="pie"><b>Descanso</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/46.jpg" data-num="46" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/46.jpg" alt="Retrato de perfil de un nene de Huracán" loading="lazy">
+        <div class="pie"><b>Perfil</b><span>Huracán · $2.000</span></div>
+      </button>
       <button class="foto" type="button" data-src="fotos/01.jpg" data-num="1" data-precio="3.000" data-tipo="Futsal">
         <img src="fotos/chicas/01.jpg" alt="Chico de futsal con la camiseta 99 a punto de patear" loading="lazy">
         <div class="pie"><b>#99</b><span>Futsal · $3.000</span></div>
