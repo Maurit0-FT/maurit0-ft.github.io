@@ -1,0 +1,51 @@
+# Página de Mauro Cuenca (@maurit0_f), fotógrafo deportivo.
+# Las fotos y videos son de Mauro y no se pueden copiar ni usar sin permiso.
+
+# Robots que juntan fotos y textos para entrenar inteligencias artificiales: no copiar nada.
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: Google-Extended
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: img2dataset
+User-agent: Omgilibot
+User-agent: Timpibot
+User-agent: YouBot
+Disallow: /
+
+# Buscadores de imágenes: no mostrar las fotos ni el video.
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: bingbot-image
+Disallow: /fotos/
+Disallow: /video/
+
+# WhatsApp, Facebook y X usan esta foto para la vista previa del link.
+User-agent: facebookexternalhit
+User-agent: WhatsApp
+User-agent: Twitterbot
+Allow: /
+
+# Resto de los buscadores (Google, Bing): pueden mostrar la página,
+# pero no las fotos sueltas ni el video.
+User-agent: *
+Allow: /$
+Allow: /index.html
+Allow: /fotos/chicas/13.jpg
+Disallow: /fotos/
+Disallow: /video/
