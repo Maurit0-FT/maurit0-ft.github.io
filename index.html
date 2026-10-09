@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WhzeXf7bp/axesy07065Brjmd8Mb+zusF+Ym3X3M120=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-NtAf+vhs3+7XCFlpiPD0Hz5hUBcDLs1ON5iblTqfn2Y=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Maurit0_f Fotografía</title>
@@ -111,7 +111,9 @@
   /* Video */
   .video-bloque { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: center; }
   .video-marco { border-radius: 18px; overflow: hidden; border: 1px solid var(--linea); background: var(--tribuna); aspect-ratio: 9 / 16; max-width: 100%; }
-  .video-marco video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-marco { position: relative; }
+  .video-marco video { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .video-marco::after { content: ""; position: absolute; inset: 0; }
   .video-texto { min-width: 0; }
 
   /* Galería */
@@ -238,7 +240,7 @@
     </div>
     <div class="portada-foto">
       <div class="video-marco">
-        <video poster="video/jugada-4.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del jugador con la camiseta 4 haciendo jueguito y llevando la pelota">
+        <video poster="video/jugada-4.jpg" autoplay muted loop playsinline preload="metadata" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback aria-label="Video del jugador con la camiseta 4 haciendo jueguito y llevando la pelota">
           <source src="video/jugada-4.mp4" type="video/mp4">
           <source src="video/jugada-4.webm" type="video/webm">
         </video>
@@ -602,7 +604,7 @@
     mostrar(lista[(actual + paso + lista.length) % lista.length]);
   };
   fotos.forEach(boton => boton.addEventListener('click', () => mostrar(boton)));
-  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG' || e.target.closest('.video-marco')) e.preventDefault(); });
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   const cerrar = () => { visor.hidden = true; };
