@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-NtAf+vhs3+7XCFlpiPD0Hz5hUBcDLs1ON5iblTqfn2Y=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, noimageindex, noai, noimageai">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maurit0_f Fotografía</title>
+<meta name="description" content="Mauro Cuenca, fotógrafo deportivo. Fotos de partidos, torneos y deportistas en calidad original y sin marca de agua. Cobertura para clubes y equipos. Pedí la tuya por WhatsApp.">
+<meta name="theme-color" content="#070d1f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://maurit0-ft.github.io/">
+<meta property="og:title" content="Maurit0_f · Fotografía deportiva">
+<meta property="og:description" content="Fotos de partidos, torneos y deportistas. Calidad original y sin marca de agua. Cobertura para clubes.">
+<meta property="og:image" content="https://maurit0-ft.github.io/fotos/chicas/13.jpg">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Jugador con la camiseta 10 pateando la pelota frente a la tribuna">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Barlow:wght@400;500;600&display=swap">
+<style>
+  /* Layout: tribuna nocturna — portada con nombre tipo dorsal, galería en grilla, servicios y contacto por DM */
+  :root {
+    --noche: #070d1f;        /* fondo */
+    --tribuna: #0e1a38;      /* superficies */
+    --linea: #1f3266;        /* bordes */
+    --azul: #2f6bff;         /* acento */
+    --celeste: #8fb4ff;      /* acento suave */
+    --tiza: #eef3ff;         /* texto */
+    --gris: #9aa8c7;         /* texto secundario */
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --cuerpo: "Barlow", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0;
+    background: var(--noche);
+    color: var(--tiza);
+    font-family: var(--cuerpo);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .envoltura { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+  /* Barra superior */
+  .barra {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--noche) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linea);
+  }
+  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .marca { font-family: var(--display); font-weight: 900; font-size: 1.5rem; letter-spacing: .02em; text-decoration: none; }
+  .marca span { color: var(--azul); }
+  .barra nav { display: flex; gap: 20px; font-size: .9rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .barra nav a { text-decoration: none; color: var(--gris); }
+  .barra nav a:hover { color: var(--tiza); }
+
+  /* Portada */
+  .portada { padding-block: 56px 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 40px; align-items: center; }
+  .portada > * { min-width: 0; }
+  .etiqueta { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--celeste); border: 1px solid var(--linea); padding: 4px 10px; border-radius: 999px; }
+  h1 {
+    font-family: var(--display); font-weight: 900; text-transform: uppercase;
+    font-size: clamp(3.4rem, 10vw, 6.6rem); line-height: .9; margin: 18px 0 16px; letter-spacing: .01em;
+    text-wrap: balance;
+  }
+  h1 .azul { color: var(--azul); display: block; }
+  .bajada { color: var(--gris); max-width: 34ch; font-size: 1.1rem; margin: 0 0 28px; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+  .boton {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; text-decoration: none; padding: 13px 22px; border-radius: 10px;
+    background: var(--azul); color: #fff; border: 1px solid var(--azul);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .boton:hover { transform: translateY(-2px); }
+  .boton.secundario { background: transparent; color: var(--tiza); border-color: var(--linea); }
+  .portada-foto { position: relative; display: flex; flex-direction: column; gap: 12px; }
+  .video-link { color: var(--celeste); font-size: .9rem; font-weight: 600; text-decoration: none; }
+  .video-link:hover { color: var(--tiza); }
+  .portada-foto img { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; display: block; }
+  .dorsal {
+    position: absolute; left: -18px; bottom: 64px;
+    font-family: var(--display); font-weight: 900; font-size: 4.6rem; line-height: 1;
+    color: var(--noche); background: var(--azul); padding: 4px 16px 8px; border-radius: 8px;
+  }
+
+  /* Secciones */
+  section { padding-block: 56px; border-top: 1px solid var(--linea); scroll-margin-top: 64px; }
+  h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1; margin: 0 0 8px; letter-spacing: .01em; }
+  .intro { color: var(--gris); margin: 0 0 32px; max-width: 60ch; }
+
+  /* Quién soy */
+  .perfil { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .perfil-foto { width: 100%; max-width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 16px; border: 1px solid var(--linea); display: block; }
+  .perfil-texto { min-width: 0; max-width: 62ch; }
+  .perfil-texto p { color: var(--gris); margin: 0 0 14px; }
+  .perfil-texto strong { color: var(--tiza); }
+  .perfil-destacado { font-size: 1.25rem; color: var(--tiza) !important; font-weight: 600; }
+  .datos-perfil { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .datos-perfil li { border: 1px solid var(--linea); background: var(--tribuna); color: var(--celeste); border-radius: 999px; padding: 6px 14px; font-size: .9rem; font-weight: 600; }
+
+  /* Video */
+  .video-bloque { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .video-marco { border-radius: 18px; overflow: hidden; border: 1px solid var(--linea); background: var(--tribuna); aspect-ratio: 9 / 16; max-width: 100%; }
+  .video-marco { position: relative; }
+  .video-marco video { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .video-marco::after { content: ""; position: absolute; inset: 0; }
+  .video-texto { min-width: 0; }
+
+  /* Galería */
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; grid-auto-flow: dense; }
+  .foto.ancha { grid-column: span 2; }
+  .foto.ancha img { aspect-ratio: 4 / 3; }
+  .sub { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.6rem; letter-spacing: .02em; margin: 8px 0 16px; color: var(--celeste); }
+  #destacadas { margin-bottom: 40px; }
+  .carpetas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .carpeta { position: relative; padding: 0; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; background: var(--tribuna); cursor: pointer; aspect-ratio: 4 / 3; color: var(--tiza); font: inherit; text-align: left; }
+  .carpeta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+  .carpeta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 13, 31, 0) 35%, rgba(7, 13, 31, .92)); }
+  .carpeta:hover img { transform: scale(1.04); }
+  .carpeta.activa { border-color: var(--azul); box-shadow: 0 0 0 2px var(--azul); }
+  .c-texto { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 1; display: flex; flex-direction: column; }
+  .c-texto b { font-family: var(--display); font-weight: 800; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+  .c-texto small { color: var(--celeste); font-weight: 600; font-size: .85rem; margin-top: 4px; }
+  .album { margin-top: 28px; scroll-margin-top: 72px; }
+  .album-cabeza { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .album-cabeza h3 { font-family: var(--display); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; margin: 0; line-height: 1.1; min-width: 0; }
+  .album-cabeza .boton { padding: 9px 16px; cursor: pointer; font: inherit; font-weight: 600; }
+  .foto { margin: 0; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; color: inherit; font: inherit; }
+  .foto img { width: 100%; max-width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 10px; display: block; transition: transform .25s ease, filter .25s ease; }
+  .foto:hover img { transform: scale(1.02); filter: brightness(1.08); }
+  .pie { display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding-top: 8px; }
+  .pie b { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--celeste); font-variant-numeric: tabular-nums; }
+  .pie span { color: var(--gris); font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; }
+
+  /* Servicios */
+  .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .servicio { background: var(--tribuna); border: 1px solid var(--linea); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .servicio h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.6rem; margin: 0; letter-spacing: .02em; }
+  .servicio p { margin: 0; color: var(--gris); }
+  .servicio .precio { margin-top: auto; padding-top: 12px; color: var(--celeste); font-weight: 600; font-size: .95rem; }
+
+  /* Contacto */
+  .contacto { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: var(--tribuna); border: 1px solid var(--linea); border-radius: 16px; padding: 32px; }
+  .contacto > * { min-width: 0; }
+  .contacto h2 { margin-bottom: 6px; }
+  .contacto p { margin: 0; color: var(--gris); }
+  .contacto { grid-template-columns: 1fr; }
+  .canales { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .canal { display: flex; flex-direction: column; gap: 2px; text-decoration: none; background: var(--noche); border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; transition: border-color .15s ease, transform .15s ease; min-width: 0; }
+  .canal:hover { border-color: var(--azul); transform: translateY(-2px); }
+  .canal span { color: var(--celeste); font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; }
+  .canal b { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--tiza); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .flotante { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; display: inline-flex; align-items: center; gap: 8px; background: var(--azul); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 18px; border-radius: 999px; box-shadow: 0 6px 20px rgba(0, 0, 0, .45); }
+  .flotante svg { width: 20px; height: 20px; }
+  footer { padding-block: 32px 96px; color: var(--gris); font-size: .9rem; text-align: center; }
+
+  /* Visor de fotos */
+  .visor { position: fixed; inset: 0; z-index: 50; background: rgba(4, 8, 20, .94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 64px 16px calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .visor img { max-width: 100%; max-height: 70vh; min-height: 0; border-radius: 10px; }
+  .visor-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; text-align: center; }
+  .visor-dato { color: var(--gris); font-size: .95rem; }
+  .visor-dato b { color: var(--tiza); font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin-right: 6px; }
+  .club { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 32px; align-items: center; background: var(--tribuna); border: 1px solid var(--azul); border-radius: 12px; padding: 28px; }
+  .club h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 2rem; margin: 12px 0 8px; letter-spacing: .02em; }
+  .club p { margin: 0; color: var(--gris); max-width: 60ch; }
+  .club ul { margin: 14px 0 0; padding-left: 20px; color: var(--tiza); display: grid; gap: 4px; }
+  .club ul li::marker { color: var(--azul); }
+  .club-accion { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .club-precio { color: var(--celeste) !important; font-weight: 600; }
+  .precio b { font-family: var(--display); font-weight: 800; font-size: 1.8rem; color: var(--tiza); margin-right: 4px; }
+  img { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
+  .flecha { position: absolute; top: 50%; transform: translateY(-50%); background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; width: 48px; height: 48px; font-size: 1.4rem; cursor: pointer; }
+  .flecha.ant { left: 12px; }
+  .flecha.sig { right: 12px; }
+  .cerrar { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; background: var(--tribuna); color: var(--tiza); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 600; cursor: pointer; }
+
+  @media (max-width: 760px) {
+    .portada { grid-template-columns: 1fr; padding-block: 32px; }
+    .portada-foto { max-width: 300px; }
+    .perfil { grid-template-columns: 1fr; gap: 24px; }
+    .perfil-foto { max-width: 320px; }
+    .dorsal { left: 12px; font-size: 3.4rem; }
+  }
+  @media (max-width: 960px) {
+    .galeria { grid-template-columns: repeat(3, 1fr); }
+    .carpetas { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .galeria { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .carpetas { grid-template-columns: 1fr; }
+    .carpeta { aspect-ratio: 16 / 7; }
+    .pie b { font-size: 1.3rem; }
+    .pie { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 6px; }
+    .pie span { font-size: .72rem; }
+    .servicios { grid-template-columns: 1fr; }
+    .club { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+    .contacto { padding: 24px; }
+    .canales { grid-template-columns: 1fr; }
+    .barra nav { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="#inicio">MAURIT0<span>_F</span></a>
+    <nav aria-label="Secciones">
+      <a href="#quien-soy">Quién soy</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="envoltura" id="inicio">
+  <div class="portada">
+    <div>
+      <span class="etiqueta">Fotógrafo deportivo</span>
+      <h1>Mauro Cuenca <span class="azul">Todos los deportes</span></h1>
+      <p class="bajada">Fotos de partidos, torneos y deportistas. Si jugás, te saco la foto que querés subir.</p>
+      <div class="acciones">
+        <a class="boton" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener">Escribime por WhatsApp</a>
+        <a class="boton secundario" href="#fotos">Ver fotos</a>
+      </div>
+    </div>
+    <div class="portada-foto">
+      <div class="video-marco">
+        <video poster="video/jugada-4.jpg" autoplay muted loop playsinline preload="metadata" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback aria-label="Video del jugador con la camiseta 4 haciendo jueguito y llevando la pelota">
+          <source src="video/jugada-4.mp4" type="video/mp4">
+          <source src="video/jugada-4.webm" type="video/webm">
+        </video>
+      </div>
+      <div class="dorsal" aria-hidden="true">4</div>
+      <a class="video-link" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20el%20video%20en%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20un%20video%20de%20jugadas." target="_blank" rel="noopener">También filmo videos para historias · Quiero uno así →</a>
+    </div>
+  </div>
+
+  <section id="quien-soy">
+    <div class="perfil">
+      <img class="perfil-foto" src="fotos/mauro.jpg" alt="Mauro Cuenca con su cámara de fotos" loading="lazy">
+      <div class="perfil-texto">
+        <h2>Quién soy</h2>
+        <p class="perfil-destacado">Soy Mauro Cuenca, tengo 21 años y soy fotógrafo deportivo.</p>
+        <p>Juego a la pelota desde siempre, igual que mis hermanos, así que la cancha es mi lugar. Ahí me di cuenta de que todos los jugadores quieren tener una buena foto de sus jugadas, sus goles y sus festejos, y empecé a sacarlas yo.</p>
+        <p>Como también juego, sé dónde pararme y qué momento vale la pena capturar.</p>
+        <p><strong>Voy a donde haya un partido:</strong> no importa la zona ni el deporte.</p>
+        <ul class="datos-perfil">
+          <li>21 años</li>
+          <li>Todos los deportes</li>
+          <li>Cualquier zona</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotos">
+    <h2>Fotos</h2>
+    <p class="intro">Tocá una foto, elegí <strong>Quiero esta foto</strong> y te la mando en calidad original y sin marca de agua.</p>
+    <h3 class="sub">Las mejores</h3>
+    <div class="galeria" id="destacadas">
+      <button class="foto" type="button" data-src="fotos/13.jpg" data-num="13" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/13.jpg" alt="Jugador con la 10 pateando frente a la tribuna" loading="lazy">
+        <div class="pie"><b>#10</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/26.jpg" data-num="26" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/26.jpg" alt="Jugador con la 11 pateando frente al arco" loading="lazy">
+        <div class="pie"><b>#11</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/34.jpg" data-num="34" data-precio="3.000" data-tipo="Taekwondo">
+        <img src="fotos/chicas/34.jpg" alt="Patada a la cabeza en un combate de taekwondo" loading="lazy">
+        <div class="pie"><b>Patada</b><span>Taekwondo · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/14.jpg" data-num="14" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
+        <div class="pie"><b>#3</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/44.jpg" data-num="44" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/44.jpg" alt="Nene de Huracán pegándole de volea a la pelota" loading="lazy">
+        <div class="pie"><b>Volea</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/30.jpg" data-num="30" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/30.jpg" alt="Capitán con la pelota en las manos" loading="lazy">
+        <div class="pie"><b>Capitán</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/31.jpg" data-num="31" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/31.jpg" alt="Foto grupal del equipo posando en la cancha" loading="lazy">
+        <div class="pie"><b>Equipo</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+    </div>
+
+    <h3 class="sub">Carpetas</h3>
+    <div class="carpetas">
+      <button type="button" class="carpeta" data-album="Huracán"><img src="fotos/chicas/38.jpg" alt="" loading="lazy"><span class="c-texto"><b>Huracán</b><small>Entrenamiento en La Quemita · 19 fotos</small></span></button>
+      <button type="button" class="carpeta" data-album="Futsal"><img src="fotos/chicas/26.jpg" alt="" loading="lazy"><span class="c-texto"><b>Futsal</b><small>21 fotos</small></span></button>
+      <button type="button" class="carpeta" data-album="Cancha de 11"><img src="fotos/chicas/13.jpg" alt="" loading="lazy"><span class="c-texto"><b>Cancha de 11</b><small>10 fotos</small></span></button>
+      <button type="button" class="carpeta" data-album="Taekwondo"><img src="fotos/chicas/36.jpg" alt="" loading="lazy"><span class="c-texto"><b>Taekwondo</b><small>Torneo en Wilde · 4 fotos</small></span></button>
+    </div>
+
+    <div class="album" id="album" hidden>
+      <div class="album-cabeza">
+        <h3 id="album-titulo">Futsal</h3>
+        <button type="button" class="boton secundario" id="album-cerrar">Cerrar carpeta ✕</button>
+      </div>
+      <div class="galeria" id="album-fotos">
+      <button class="foto" type="button" data-src="fotos/44.jpg" data-num="44" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/44.jpg" alt="Nene de Huracán pegándole de volea a la pelota" loading="lazy">
+        <div class="pie"><b>Volea</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/38.jpg" data-num="38" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/38.jpg" alt="Nenes de Huracán corriendo en la entrada en calor" loading="lazy">
+        <div class="pie"><b>Entrada en calor</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/39.jpg" data-num="39" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/39.jpg" alt="Dos nenes de Huracán disputando la pelota" loading="lazy">
+        <div class="pie"><b>Gambeta</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/43.jpg" data-num="43" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/43.jpg" alt="Nene de Huracán a punto de patear la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/41.jpg" data-num="41" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/41.jpg" alt="Nene con pechera de Huracán llevando la pelota" loading="lazy">
+        <div class="pie"><b>Conducción</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/50.jpg" data-num="50" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/50.jpg" alt="Nenes de Huracán disputando la pelota en el entrenamiento" loading="lazy">
+        <div class="pie"><b>Jugada</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/54.jpg" data-num="54" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/54.jpg" alt="Nene de Huracán pateando con luz del atardecer" loading="lazy">
+        <div class="pie"><b>Contraluz</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/52.jpg" data-num="52" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/52.jpg" alt="Nene con pechera de Huracán por patear la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/55.jpg" data-num="55" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/55.jpg" alt="Nene con pechera de Huracán pegándole a la pelota" loading="lazy">
+        <div class="pie"><b>Pase</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/51.jpg" data-num="51" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/51.jpg" alt="Nene con buzo de Huracán por patear la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/53.jpg" data-num="53" data-precio="3.000" data-tipo="Huracán">
+        <img src="fotos/chicas/53.jpg" alt="Nene de Huracán corriendo en el entrenamiento" loading="lazy">
+        <div class="pie"><b>Carrera</b><span>Huracán · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/47.jpg" data-num="47" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/47.jpg" alt="Nene de Huracán posando con el pie sobre la pelota" loading="lazy">
+        <div class="pie"><b>Pose</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/56.jpg" data-num="56" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/56.jpg" alt="Nene con pechera blanca de Huracán mirando la jugada" loading="lazy">
+        <div class="pie"><b>Pechera</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/37.jpg" data-num="37" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/37.jpg" alt="Nene de Huracán caminando en la cancha" loading="lazy">
+        <div class="pie"><b>Previa</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/42.jpg" data-num="42" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/42.jpg" alt="Nene de Huracán caminando hacia la jugada" loading="lazy">
+        <div class="pie"><b>En la cancha</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/40.jpg" data-num="40" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/40.jpg" alt="Entrenador de Huracán mirando el entrenamiento" loading="lazy">
+        <div class="pie"><b>DT</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/49.jpg" data-num="49" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/49.jpg" alt="Entrenador de Huracán atento al entrenamiento" loading="lazy">
+        <div class="pie"><b>Profe</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/48.jpg" data-num="48" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/48.jpg" alt="Entrenador de Huracán caminando hacia la cancha" loading="lazy">
+        <div class="pie"><b>Profe</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/45.jpg" data-num="45" data-precio="2.000" data-tipo="Huracán">
+        <img src="fotos/chicas/45.jpg" alt="Nene de Huracán sentado en un banco mirando la cancha" loading="lazy">
+        <div class="pie"><b>Descanso</b><span>Huracán · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/01.jpg" data-num="1" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/01.jpg" alt="Chico de futsal con la camiseta 99 a punto de patear" loading="lazy">
+        <div class="pie"><b>#99</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/13.jpg" data-num="13" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/13.jpg" alt="Jugador con la 10 pateando frente a la tribuna" loading="lazy">
+        <div class="pie"><b>#10</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/26.jpg" data-num="26" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/26.jpg" alt="Jugador con la 11 pateando frente al arco" loading="lazy">
+        <div class="pie"><b>#11</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/16.jpg" data-num="16" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/16.jpg" alt="Jugador con la 25 pateando la pelota naranja" loading="lazy">
+        <div class="pie"><b>#25</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/31.jpg" data-num="31" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/31.jpg" alt="Foto grupal del equipo posando en la cancha" loading="lazy">
+        <div class="pie"><b>Equipo</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/14.jpg" data-num="14" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/14.jpg" alt="Jugador con la 3 festejando un gol" loading="lazy">
+        <div class="pie"><b>#3</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/22.jpg" data-num="22" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/22.jpg" alt="Jugador con la 16 llevando la pelota" loading="lazy">
+        <div class="pie"><b>#16</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/05.jpg" data-num="5" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/05.jpg" alt="Chico con la 9 pisando la pelota junto a la línea" loading="lazy">
+        <div class="pie"><b>#9</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/30.jpg" data-num="30" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/30.jpg" alt="Capitán con la pelota en las manos" loading="lazy">
+        <div class="pie"><b>Capitán</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/19.jpg" data-num="19" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/19.jpg" alt="Jugador con buzo negro pateando la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/11.jpg" data-num="11" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/11.jpg" alt="Arquero con guantes caminando por el área" loading="lazy">
+        <div class="pie"><b>Arquero</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/28.jpg" data-num="28" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/28.jpg" alt="Jugador con la 14 disputando la pelota" loading="lazy">
+        <div class="pie"><b>#14</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/07.jpg" data-num="7" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/07.jpg" alt="Disputa de pelota entre jugadores en cancha de tierra" loading="lazy">
+        <div class="pie"><b>#8</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/32.jpg" data-num="32" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/32.jpg" alt="Equipo festejando un gol con un jugador de rodillas" loading="lazy">
+        <div class="pie"><b>Festejo</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/18.jpg" data-num="18" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/18.jpg" alt="Capitán de futsal llevando la pelota" loading="lazy">
+        <div class="pie"><b>Capitán</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/02.jpg" data-num="2" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/02.jpg" alt="Jugador con la 11 pateando en el gimnasio" loading="lazy">
+        <div class="pie"><b>#11</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/04.jpg" data-num="4" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/04.jpg" alt="Jugador llevando la pelota embarrada" loading="lazy">
+        <div class="pie"><b>Pelota</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/20.jpg" data-num="20" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/20.jpg" alt="Jugador con la 44 mirando la jugada" loading="lazy">
+        <div class="pie"><b>#44</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/15.jpg" data-num="15" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/15.jpg" alt="Jugador con la 77 apoyando la mano sobre la pelota" loading="lazy">
+        <div class="pie"><b>#77</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/10.jpg" data-num="10" data-precio="2.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/10.jpg" alt="Jugador con la 8 parado en la cancha" loading="lazy">
+        <div class="pie"><b>#8</b><span>Cancha de 11 · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/21.jpg" data-num="21" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/21.jpg" alt="Arquero de futsal entrando en calor" loading="lazy">
+        <div class="pie"><b>Arquero</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/24.jpg" data-num="24" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/24.jpg" alt="Jugador con la 2 llevando la pelota" loading="lazy">
+        <div class="pie"><b>#2</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/12.jpg" data-num="12" data-precio="3.000" data-tipo="Cancha de 11">
+        <img src="fotos/chicas/12.jpg" alt="Jugador haciendo jueguito en la entrada en calor" loading="lazy">
+        <div class="pie"><b>Previa</b><span>Cancha de 11 · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/23.jpg" data-num="23" data-precio="3.000" data-tipo="Futsal">
+        <img src="fotos/chicas/23.jpg" alt="Capitán acomodando la pelota para sacar un lateral" loading="lazy">
+        <div class="pie"><b>Lateral</b><span>Futsal · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/08.jpg" data-num="8" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/08.jpg" alt="Retrato de un chico con la camiseta 4" loading="lazy">
+        <div class="pie"><b>#4</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/29.jpg" data-num="29" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/29.jpg" alt="Tres jugadores hablando antes de la jugada" loading="lazy">
+        <div class="pie"><b>Charla</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/09.jpg" data-num="9" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/09.jpg" alt="Jugador con la 25 de espaldas con la pelota en la mano" loading="lazy">
+        <div class="pie"><b>#25</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/27.jpg" data-num="27" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/27.jpg" alt="Retrato de un chico con la camiseta 99" loading="lazy">
+        <div class="pie"><b>#99</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/25.jpg" data-num="25" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/25.jpg" alt="Director técnico dando indicaciones" loading="lazy">
+        <div class="pie"><b>DT</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/06.jpg" data-num="6" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/06.jpg" alt="Retrato de perfil de un jugador de futsal" loading="lazy">
+        <div class="pie"><b>Perfil</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/17.jpg" data-num="17" data-precio="2.000" data-tipo="Futsal">
+        <img src="fotos/chicas/17.jpg" alt="Retrato de perfil de un chico de futsal" loading="lazy">
+        <div class="pie"><b>#19</b><span>Futsal · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/33.jpg" data-num="33" data-precio="2.000" data-tipo="Taekwondo">
+        <img src="fotos/chicas/33.jpg" alt="Competidor de taekwondo con cinturón verde esperando su combate" loading="lazy">
+        <div class="pie"><b>Competidor</b><span>Taekwondo · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/34.jpg" data-num="34" data-precio="3.000" data-tipo="Taekwondo">
+        <img src="fotos/chicas/34.jpg" alt="Patada a la cabeza en un combate de taekwondo" loading="lazy">
+        <div class="pie"><b>Patada</b><span>Taekwondo · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/35.jpg" data-num="35" data-precio="3.000" data-tipo="Taekwondo">
+        <img src="fotos/chicas/35.jpg" alt="Patada de espaldas en un combate de taekwondo" loading="lazy">
+        <div class="pie"><b>Combate</b><span>Taekwondo · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/36.jpg" data-num="36" data-precio="3.000" data-tipo="Taekwondo">
+        <img src="fotos/chicas/36.jpg" alt="Patada alta durante un combate de taekwondo" loading="lazy">
+        <div class="pie"><b>Patada alta</b><span>Taekwondo · $3.000</span></div>
+      </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <p class="intro">Te mando cada foto en calidad original y sin marca de agua.</p>
+    <div class="servicios">
+      <div class="servicio">
+        <h3>Foto en acción</h3>
+        <p>Jugadas, remates, festejos y los mejores momentos del partido.</p>
+        <div class="precio"><b>$3.000</b> por foto</div>
+      </div>
+      <div class="servicio">
+        <h3>Retrato</h3>
+        <p>Fotos con la camiseta, de perfil o con el equipo, listas para tu perfil.</p>
+        <div class="precio"><b>$2.000</b> por foto</div>
+      </div>
+      <div class="servicio">
+        <h3>Pack de 3 fotos</h3>
+        <p>Elegí las 3 que más te gusten, de acción o retrato.</p>
+        <div class="precio"><b>$7.000</b> el pack</div>
+      </div>
+    </div>
+    <div class="club">
+      <div class="club-texto">
+        <span class="etiqueta">Para clubes y equipos</span>
+        <h3>Cobertura completa</h3>
+        <p>Voy al partido o al torneo y saco fotos de todo el plantel. Te entrego las fotos editadas y listas para las redes del club.</p>
+        <ul>
+          <li>Cobertura de partidos y torneos</li>
+          <li>Packs de fotos por jugador</li>
+          <li>Abonos mensuales o por temporada</li>
+        </ul>
+      </div>
+      <div class="club-accion">
+        <p class="club-precio">El precio depende de la cantidad de partidos y jugadores.</p>
+        <a class="boton" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Soy%20de%20un%20club%20y%20quiero%20un%20presupuesto%20para%20cubrir%20partidos." target="_blank" rel="noopener">Pedí tu presupuesto</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="contacto">
+      <div>
+        <h2>Contratame</h2>
+        <p>Escribime por WhatsApp o Instagram con el deporte, la fecha, el lugar y la categoría.</p>
+      </div>
+      <div class="canales">
+        <a class="canal" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener"><span>WhatsApp</span><b>11 3031-4910</b></a>
+        <a class="canal" href="https://wa.me/5491165788574?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener"><span>WhatsApp</span><b>11 6578-8574</b></a>
+        <a class="canal" href="https://instagram.com/maurit0_f" target="_blank" rel="noopener"><span>Instagram</span><b>@maurit0_f</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© Mauro Cuenca · @maurit0_f · Fotografía deportiva</footer>
+
+<a class="flotante" href="https://wa.me/5491130314910?text=Hola%20Mauro!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20consultar%20por%20fotos." target="_blank" rel="noopener" aria-label="Escribir a Mauro por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+
+<div class="visor" id="visor" hidden>
+  <button class="cerrar" id="cerrar" type="button">Cerrar ✕</button>
+  <button class="flecha ant" id="ant" type="button" aria-label="Foto anterior">‹</button>
+  <img id="visor-img" alt="Foto ampliada">
+  <div class="visor-pie">
+    <span class="visor-dato" id="visor-dato"></span>
+    <a class="boton" id="quiero" href="#" target="_blank" rel="noopener">Quiero esta foto</a>
+  </div>
+  <button class="flecha sig" id="sig" type="button" aria-label="Foto siguiente">›</button>
+</div>
+
+<script>
+  const visor = document.getElementById('visor');
+  const visorImg = document.getElementById('visor-img');
+  const fotos = [...document.querySelectorAll('.foto')];
+  let actual = 0;
+  let grupo = [];
+  const mostrar = boton => {
+    grupo = [...boton.closest('.galeria').querySelectorAll('.foto')].filter(f => !f.hidden);
+    actual = grupo.indexOf(boton);
+    visorImg.src = boton.dataset.src;
+    visorImg.alt = boton.querySelector('img').alt;
+    const titulo = boton.querySelector('.pie b').textContent;
+    const tipo = boton.dataset.tipo;
+    document.getElementById('visor-dato').innerHTML = `<b>$${boton.dataset.precio}</b>Foto N° ${boton.dataset.num} · ${titulo} · ${tipo}`;
+    const texto = `Hola Mauro! Quiero la foto N° ${boton.dataset.num} (${titulo}, ${tipo}) de $${boton.dataset.precio} que vi en tu página.`;
+    document.getElementById('quiero').href = 'https://wa.me/5491130314910?text=' + encodeURIComponent(texto);
+    visor.hidden = false;
+  };
+  const mover = paso => {
+    const lista = grupo;
+    mostrar(lista[(actual + paso + lista.length) % lista.length]);
+  };
+  fotos.forEach(boton => boton.addEventListener('click', () => mostrar(boton)));
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG' || e.target.closest('.video-marco')) e.preventDefault(); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  const cerrar = () => { visor.hidden = true; };
+  document.getElementById('cerrar').addEventListener('click', cerrar);
+  document.getElementById('ant').addEventListener('click', () => mover(-1));
+  document.getElementById('sig').addEventListener('click', () => mover(1));
+  visor.addEventListener('click', e => { if (e.target === visor) cerrar(); });
+  document.addEventListener('keydown', e => {
+    if (visor.hidden) return;
+    if (e.key === 'Escape') cerrar();
+    if (e.key === 'ArrowLeft') mover(-1);
+    if (e.key === 'ArrowRight') mover(1);
+  });
+  let inicioX = null;
+  visor.addEventListener('touchstart', e => { inicioX = e.touches[0].clientX; }, { passive: true });
+  visor.addEventListener('touchend', e => {
+    if (inicioX === null) return;
+    const dx = e.changedTouches[0].clientX - inicioX;
+    if (Math.abs(dx) > 50) mover(dx < 0 ? 1 : -1);
+    inicioX = null;
+  });
+  const album = document.getElementById('album');
+  const carpetas = [...document.querySelectorAll('.carpeta')];
+  const albumFotos = [...album.querySelectorAll('.foto')];
+  carpetas.forEach(c => c.addEventListener('click', () => {
+    const tipo = c.dataset.album;
+    if (!album.hidden && c.classList.contains('activa')) { cerrarAlbum(); return; }
+    carpetas.forEach(x => x.classList.toggle('activa', x === c));
+    albumFotos.forEach(f => { f.hidden = f.dataset.tipo !== tipo; });
+    document.getElementById('album-titulo').textContent = c.querySelector('b').textContent + ' · ' + c.querySelector('small').textContent;
+    album.hidden = false;
+    album.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+  const cerrarAlbum = () => {
+    album.hidden = true;
+    carpetas.forEach(x => x.classList.remove('activa'));
+    document.querySelector('.carpetas').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  document.getElementById('album-cerrar').addEventListener('click', cerrarAlbum);
+</script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b9c1378aa02a41829bcaa7ab472a1e04"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
