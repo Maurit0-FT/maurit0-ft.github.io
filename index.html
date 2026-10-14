@@ -123,11 +123,12 @@
   .foto.ancha img { aspect-ratio: 4 / 3; }
   .sub { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.6rem; letter-spacing: .02em; margin: 8px 0 16px; color: var(--celeste); }
   #destacadas { margin-bottom: 40px; }
-  .carpetas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .carpetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .carpeta { position: relative; padding: 0; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; background: var(--tribuna); cursor: pointer; aspect-ratio: 4 / 3; color: var(--tiza); font: inherit; text-align: left; }
   .carpeta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
   .carpeta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 13, 31, 0) 35%, rgba(7, 13, 31, .92)); }
   .carpeta:hover img { transform: scale(1.04); }
+  .carpetas .carpeta:first-child { grid-column: span 2; aspect-ratio: auto; }
   .carpeta.activa { border-color: var(--azul); box-shadow: 0 0 0 2px var(--azul); }
   .c-texto { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 1; display: flex; flex-direction: column; }
   .c-texto b { font-family: var(--display); font-weight: 800; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
@@ -195,10 +196,12 @@
   @media (max-width: 960px) {
     .galeria { grid-template-columns: repeat(3, 1fr); }
     .carpetas { grid-template-columns: repeat(2, 1fr); }
+    .carpetas .carpeta:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
   }
   @media (max-width: 760px) {
     .galeria { grid-template-columns: 1fr 1fr; gap: 10px; }
     .carpetas { grid-template-columns: 1fr; }
+    .carpetas .carpeta:first-child { grid-column: auto; }
     .carpeta { aspect-ratio: 16 / 7; }
     .pie b { font-size: 1.3rem; }
     .pie { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 6px; }
@@ -306,6 +309,7 @@
 
     <h3 class="sub">Carpetas</h3>
     <div class="carpetas">
+      <button type="button" class="carpeta" data-album="Final Zona de Oro"><img src="fotos/chicas/57.jpg" alt="" loading="lazy"><span class="c-texto"><b>Final Zona de Oro</b><small>Cristiania vs AKD · 12/10 · 19 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Huracán"><img src="fotos/chicas/38.jpg" alt="" loading="lazy"><span class="c-texto"><b>Huracán</b><small>Entrenamiento en La Quemita · 19 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Futsal"><img src="fotos/chicas/26.jpg" alt="" loading="lazy"><span class="c-texto"><b>Futsal</b><small>21 fotos</small></span></button>
       <button type="button" class="carpeta" data-album="Cancha de 11"><img src="fotos/chicas/13.jpg" alt="" loading="lazy"><span class="c-texto"><b>Cancha de 11</b><small>10 fotos</small></span></button>
@@ -318,6 +322,82 @@
         <button type="button" class="boton secundario" id="album-cerrar">Cerrar carpeta ✕</button>
       </div>
       <div class="galeria" id="album-fotos">
+      <button class="foto" type="button" data-src="fotos/57.jpg" data-num="57" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/57.jpg" alt="Jugador de AKD con la 3 gritando un gol" loading="lazy">
+        <div class="pie"><b>Festejo</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/58.jpg" data-num="58" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/58.jpg" alt="Jugador de AKD con la 24 festejando con los brazos en alto" loading="lazy">
+        <div class="pie"><b>Festejo</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/59.jpg" data-num="59" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/59.jpg" alt="Jugador de AKD con la 24 señalando al cielo" loading="lazy">
+        <div class="pie"><b>Festejo</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/60.jpg" data-num="60" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/60.jpg" alt="Jugador de Cristiania por patear la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/61.jpg" data-num="61" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/61.jpg" alt="Nena de Cristiania con la 11 llevando la pelota" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/62.jpg" data-num="62" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/62.jpg" alt="Nene de AKD pateando junto al árbitro" loading="lazy">
+        <div class="pie"><b>Remate</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/63.jpg" data-num="63" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/63.jpg" alt="Tres jugadores disputando la pelota" loading="lazy">
+        <div class="pie"><b>Disputa</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/64.jpg" data-num="64" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/64.jpg" alt="Arquero de AKD con la 55 saliendo con la pelota" loading="lazy">
+        <div class="pie"><b>Arquero</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/65.jpg" data-num="65" data-precio="3.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/65.jpg" alt="Arquero de AKD con la 55 pateando la pelota" loading="lazy">
+        <div class="pie"><b>Arquero</b><span>Final Zona de Oro · $3.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/66.jpg" data-num="66" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/66.jpg" alt="Foto grupal del equipo de Cristiania categoría 2014" loading="lazy">
+        <div class="pie"><b>Equipo</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto ancha" type="button" data-src="fotos/67.jpg" data-num="67" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/67.jpg" alt="Foto grupal del equipo de AKD" loading="lazy">
+        <div class="pie"><b>Equipo</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/68.jpg" data-num="68" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/68.jpg" alt="Los dos equipos formados con la copa antes de la final" loading="lazy">
+        <div class="pie"><b>Previa</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/69.jpg" data-num="69" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/69.jpg" alt="Árbitro haciendo el sorteo con dos capitanes" loading="lazy">
+        <div class="pie"><b>Sorteo</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/70.jpg" data-num="70" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/70.jpg" alt="Jugadores de AKD juntando las manos antes del partido" loading="lazy">
+        <div class="pie"><b>Arenga</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/71.jpg" data-num="71" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/71.jpg" alt="Jugador de AKD con la 8 acomodando la pelota" loading="lazy">
+        <div class="pie"><b>Lateral</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/72.jpg" data-num="72" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/72.jpg" alt="Jugador de AKD acomodando la pelota frente a una puerta roja" loading="lazy">
+        <div class="pie"><b>Lateral</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/73.jpg" data-num="73" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/73.jpg" alt="Jugador de Cristiania con la 32 frente al arco" loading="lazy">
+        <div class="pie"><b>#32</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/74.jpg" data-num="74" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/74.jpg" alt="Jugador de AKD con la 10 de espaldas" loading="lazy">
+        <div class="pie"><b>#10</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
+      <button class="foto" type="button" data-src="fotos/75.jpg" data-num="75" data-precio="2.000" data-tipo="Final Zona de Oro">
+        <img src="fotos/chicas/75.jpg" alt="Hinchada en la tribuna con banderas" loading="lazy">
+        <div class="pie"><b>Hinchada</b><span>Final Zona de Oro · $2.000</span></div>
+      </button>
       <button class="foto" type="button" data-src="fotos/44.jpg" data-num="44" data-precio="3.000" data-tipo="Huracán">
         <img src="fotos/chicas/44.jpg" alt="Nene de Huracán pegándole de volea a la pelota" loading="lazy">
         <div class="pie"><b>Volea</b><span>Huracán · $3.000</span></div>
